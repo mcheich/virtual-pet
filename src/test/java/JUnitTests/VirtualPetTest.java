@@ -32,7 +32,7 @@ public class VirtualPetTest {
 		//Arrange
 		VirtualPet underTest = new VirtualPet();
 		//Act
-		underTest.setHunger();
+		underTest.setHunger(20);
 		//Assert
 		assertTrue(underTest.getHunger() >= 0);
 	}
@@ -42,9 +42,31 @@ public class VirtualPetTest {
 		//Arrange
 		VirtualPet underTest = new VirtualPet();
 		//Act
-		underTest.setHunger();
+		underTest.setHunger(-24);
 		//Assert
 		assertTrue(underTest.getHunger() <= 24);
 	}
+	
+	@Test
+	public void feedDecreasesHungerBy8() {
+		//Arrange
+		VirtualPet underTest = new VirtualPet();
+		//Act
+		underTest.feed();
+		//Assert
+		assertEquals(4, underTest.getHunger());
+	}
+	
+	@Test
+	public void feedDoesNotSetHungerBelow0() {
+		//Arrange
+		VirtualPet underTest = new VirtualPet();
+		//Act
+		underTest.feed();
+		underTest.feed();
+		//Assert
+		assertTrue(underTest.getHunger() >= 0);
+	}
+	
 
 }
