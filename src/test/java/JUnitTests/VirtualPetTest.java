@@ -70,6 +70,68 @@ public class VirtualPetTest {
 	}
 
 	@Test
+	public void playDoesNotDecreaseBoredomBelow0() {
+		// Arrange
+		VirtualPet underTest = new VirtualPet();
+		// Act
+		underTest.setBoredom(3);
+		underTest.play();
+		// Assert
+		assertEquals(0, underTest.getBoredom());
+	}
+
+	@Test
+	public void setBoredomDoesNoDecreaseBoredomBelow0() {
+		// Arrange
+		VirtualPet underTest = new VirtualPet();
+		// Act
+		underTest.setBoredom(-3);
+		// Assert
+		assertEquals(0, underTest.getBoredom());
+	}
+
+	@Test
+	public void setBoredomDoesNoIncreaseBoredomAbove24() {
+		// Arrange
+		VirtualPet underTest = new VirtualPet();
+		// Act
+		underTest.setBoredom(25);
+		// Assert
+		assertEquals(24, underTest.getBoredom());
+	}
+
+	@Test
+	public void setSleepinessReturnsValueGreatThanOrEqualTo0() {
+		//Arrange
+		VirtualPet underTest = new VirtualPet();
+		//Act
+		underTest.setSleepiness(-2);
+		//Assert
+		assertEquals(0,underTest.getSleepiness());
+	}
+	
+	@Test
+	public void setSleepinessReturnsValueLessThanOrEqualTo24() {
+		//Arrange
+		VirtualPet underTest = new VirtualPet();
+		//Act
+		underTest.setSleepiness(25);
+		//Assert
+		assertEquals(24,underTest.getSleepiness());
+	}
+
+	@Test
+	public void sleepReducesSleepinessBy12() {
+		// Arrange
+		VirtualPet underTest = new VirtualPet();
+		// Act
+		underTest.setSleepiness(24);
+		underTest.sleep();
+		//Assert
+		assertEquals(12,underTest.getSleepiness());
+	}
+	
+	@Test
 	public void tickIncreasesHungerBy6() {
 		// Arrange
 		VirtualPet underTest = new VirtualPet();
@@ -78,34 +140,15 @@ public class VirtualPetTest {
 		// Assert
 		assertEquals(18, underTest.getHunger());
 	}
-
+	
 	@Test
-	public void playDoesNotDecreaseBoredomBelow0() {
+	public void tickIncreasesSleepinessBy6() {
 		// Arrange
 		VirtualPet underTest = new VirtualPet();
-		//Act
-		underTest.setBoredom(3);
-		underTest.play();
-		//Assert
-		assertEquals(0, underTest.getBoredom());
+		// Act
+		underTest.tick();
+		// Assert
+		assertEquals(18, underTest.getSleepiness());
 	}
 	
-	public void setBoredomDoesNoDecreaseBoredomBelow0() {
-		// Arrange
-		VirtualPet underTest = new VirtualPet();
-		//Act
-		underTest.setBoredom(-3);
-		//Assert
-		assertEquals(0, underTest.getBoredom());
-	}
-	
-	public void setBoredomDoesNoIncreaseBoredomAbove24() {
-		// Arrange
-		VirtualPet underTest = new VirtualPet();
-		//Act
-		underTest.setBoredom(25);
-		//Assert
-		assertEquals(0, underTest.getBoredom());
-	}
-
 }

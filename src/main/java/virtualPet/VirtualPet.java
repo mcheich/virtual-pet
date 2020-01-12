@@ -4,20 +4,10 @@ public class VirtualPet {
 	/* Class Fields */
 	private int hunger = 12;
 	private int boredom = 12;
+	private int sleepiness = 12;
 
-	/* Class Methods */
-
-	/**
-	 * This method represents the passing of time. It is called after every user
-	 * interaction. It adjusts the instance variables.
-	 * 
-	 * @return Nothing.
-	 * @param None.
-	 */
-	public void tick() {
-		// Increase hunger by fixed amount
-		setHunger(hunger + 6);
-	}
+	/****** Getters and Setter ******************************/
+	/********************************************************/
 
 	/**
 	 * This is a getter method for hunger.
@@ -27,7 +17,7 @@ public class VirtualPet {
 	 * @param TBD
 	 */
 	public int getHunger() {
-		return hunger;
+		return this.hunger;
 	}
 
 	/**
@@ -36,19 +26,77 @@ public class VirtualPet {
 	 * @return Nothing.
 	 * @param newHunger
 	 */
-	public void setHunger(int newHunger) {
+	public void setHunger(int hunger) {
 
-		hunger = newHunger;
+		this.hunger = hunger;
 
 		// Hunger does not go below 0
-		if (hunger < 0) {
-			hunger = 0;
+		if (this.hunger < 0) {
+			this.hunger = 0;
 		}
 
-		if (hunger > 24) {
-			hunger = 24;
+		if (this.hunger > 24) {
+			this.hunger = 24;
 		}
 	}
+
+	/**
+	 * A getter method for boredom.
+	 * 
+	 * @return boredom
+	 * @param None.
+	 */
+	public int getBoredom() {
+		return this.boredom;
+	}
+
+	/**
+	 * This is a setter method for boredom.
+	 * 
+	 * @return Nothing.
+	 * @param newBoredom
+	 */
+	public void setBoredom(int boredom) {
+		this.boredom = boredom;
+
+		if (this.boredom < 0) {
+			this.boredom = 0;
+		}
+		if (this.boredom > 24) {
+			this.boredom = 24;
+		}
+	}
+
+	/**
+	 * A getter method for sleepiness.
+	 * 
+	 * @return sleepiness
+	 * @param None.
+	 */
+	public int getSleepiness() {
+		return this.sleepiness;
+	}
+
+	/**
+	 * A setter method for sleepiness.
+	 * 
+	 * @return Nothing.
+	 * @param sleepiness the sleepiness to set
+	 */
+	public void setSleepiness(int rest) {
+		this.sleepiness = rest;
+
+		if (this.sleepiness < 0) {
+			this.sleepiness = 0;
+		}
+		if (this.sleepiness > 24) {
+			this.sleepiness = 24;
+		}
+	}
+
+	/****** Class Methods ***********************************/
+	/********************************************************/
+
 
 	/**
 	 * This method reduces hunger by a fixed amount
@@ -74,30 +122,24 @@ public class VirtualPet {
 	}
 
 	/**
-	 * This is a setter method for boredom.
-	 * 
+	 * This method reduces sleepiness by a fixed amount.
 	 * @return Nothing.
-	 * @param newBoredom
+	 * @param None
 	 */
-	public void setBoredom(int newBoredom) {
-		boredom = newBoredom;
-
-		if (boredom < 0) {
-			boredom = 0;
-		}
-		if (boredom > 24) {
-			boredom = 24;
-		}
+	public void sleep() {
+		//Reduce sleepiness by fixed amount
+		setSleepiness(this.sleepiness - 12);
 	}
 
 	/**
-	 * This is a fetter method for boredom.
+	 * This method represents the passing of time. It is called after every user
+	 * interaction. It adjusts the instance variables.
 	 * 
-	 * @return boredom
-	 * @param Nothing.
+	 * @return Nothing.
+	 * @param None.
 	 */
-	public int getBoredom() {
-		return boredom;
+	public void tick() {
+		// Increase hunger by fixed amount
+		setHunger(hunger + 6);
 	}
-
 }
