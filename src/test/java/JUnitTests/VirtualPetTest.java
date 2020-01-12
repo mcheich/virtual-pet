@@ -68,5 +68,15 @@ public class VirtualPetTest {
 		assertTrue(underTest.getHunger() >= 0);
 	}
 	
+	@Test
+	public void tickIncreasesHungerBy6() {
+		//Arrange
+		VirtualPet underTest = new VirtualPet();
+		//Act
+		underTest.tick();
+		//Assert
+		assertEquals(18, underTest.getHunger());
+	}
+	
 
 }

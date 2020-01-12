@@ -18,10 +18,9 @@ public class VirtualPet {
 	}
 	
 	/**
-	 * This is a setter method for hunger.
-	 * @param food 
-	 * @return Nothing
-	 * @param TBD 
+	 * This is a setter method for hunger. 
+	 * @return Nothing.
+	 * @param newHunger 
 	 * */
 	public void setHunger(int newHunger) {
 		
@@ -37,10 +36,26 @@ public class VirtualPet {
 		}
 	}
 	
+	/**
+	 * This method reduces hunger by a fixed amount
+	 * @return Nothing.
+	 * @param None.
+	 */
 	public void feed() {
 		
 		setHunger(hunger - 8);
 		
+	}
+
+	/**
+	 * This method represents the passing of time.
+	 * It is called after every user interaction.
+	 * It adjusts the instance variables.
+	 * @return Nothing.
+	 * @param None.
+	 */
+	public void tick() {
+		setHunger(hunger + 6);
 	}
 
 }
