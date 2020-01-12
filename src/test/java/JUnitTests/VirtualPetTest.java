@@ -150,5 +150,15 @@ public class VirtualPetTest {
 		// Assert
 		assertEquals(18, underTest.getSleepiness());
 	}
-	
+
+	@Test
+	public void tickIncreasesBoredomBy8() {
+		// Arrange
+		VirtualPet underTest = new VirtualPet();
+		// Act
+		underTest.tick();
+		// Assert
+		assertEquals(20, underTest.getBoredom());
+	}
+
 }

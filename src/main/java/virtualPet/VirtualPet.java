@@ -1,12 +1,14 @@
 package virtualPet;
 
 public class VirtualPet {
+	
 	/* Class Fields */
 	private int hunger = 12;
 	private int boredom = 12;
 	private int sleepiness = 12;
 
-	/****** Getters and Setter ******************************/
+	
+	/****** Getter and Setter Methods ***********************/
 	/********************************************************/
 
 	/**
@@ -94,9 +96,9 @@ public class VirtualPet {
 		}
 	}
 
+	
 	/****** Class Methods ***********************************/
 	/********************************************************/
-
 
 	/**
 	 * This method reduces hunger by a fixed amount
@@ -140,6 +142,10 @@ public class VirtualPet {
 	 */
 	public void tick() {
 		// Increase hunger by fixed amount
-		setHunger(hunger + 6);
+		setHunger(this.hunger + 6);
+		// Increase sleepiness by fixed amount
+		setSleepiness(this.sleepiness + 6);
+		// Increase boredom by fixed amount
+		setBoredom(this.boredom + 8);
 	}
 }
