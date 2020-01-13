@@ -132,33 +132,33 @@ public class VirtualPetTest {
 	}
 	
 	@Test
-	public void tickIncreasesHungerBy6() {
+	public void tickIncreasesHungerBy2() {
 		// Arrange
 		VirtualPet underTest = new VirtualPet();
 		// Act
 		underTest.tick();
 		// Assert
-		assertEquals(18, underTest.getHunger());
+		assertEquals(14, underTest.getHunger());
 	}
 	
 	@Test
-	public void tickIncreasesSleepinessBy6() {
+	public void tickIncreasesSleepinessBy3() {
 		// Arrange
 		VirtualPet underTest = new VirtualPet();
 		// Act
 		underTest.tick();
 		// Assert
-		assertEquals(18, underTest.getSleepiness());
+		assertEquals(15, underTest.getSleepiness());
 	}
 
 	@Test
-	public void tickIncreasesBoredomBy8() {
+	public void tickIncreasesBoredomBy3() {
 		// Arrange
 		VirtualPet underTest = new VirtualPet();
 		// Act
 		underTest.tick();
 		// Assert
-		assertEquals(20, underTest.getBoredom());
+		assertEquals(15, underTest.getBoredom());
 	}
 
 }

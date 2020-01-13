@@ -120,7 +120,7 @@ public class VirtualPet {
 	 */
 	public void play() {
 		// Reduce boredom by a set amount
-		setBoredom(boredom - 4);
+		setBoredom(boredom - 9);
 	}
 
 	/**
@@ -142,10 +142,10 @@ public class VirtualPet {
 	 */
 	public void tick() {
 		// Increase hunger by fixed amount
-		setHunger(this.hunger + 6);
+		setHunger(this.hunger + 2);
 		// Increase sleepiness by fixed amount
-		setSleepiness(this.sleepiness + 6);
+		setSleepiness(this.sleepiness + 3);
 		// Increase boredom by fixed amount
-		setBoredom(this.boredom + 8);
+		setBoredom(this.boredom + 3);
 	}
 }
