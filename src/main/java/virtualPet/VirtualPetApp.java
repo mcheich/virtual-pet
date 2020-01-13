@@ -6,7 +6,7 @@ package virtualPet;
 import java.util.Scanner;
 
 /**
- * @author michaelJames
+ * @author Michael Cheich
  *
  */
 public class VirtualPetApp {
